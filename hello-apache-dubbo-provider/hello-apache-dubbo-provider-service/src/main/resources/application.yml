@@ -1,0 +1,19 @@
+
+spring:
+  application:
+    name: dubbo-provider
+  # 解决 bean同名冲突
+  main:
+    allow-bean-definition-overriding: true
+dubbo:
+  scan:
+    base-packages: com.antoniopeng.hello.apache.dubbo.provider.service
+  protocol:
+    name: dubbo
+    #  -1 表示自动分配端口
+    port: -1
+    serialization: kryo
+  registry:
+    address: nacos://192.168.127.132:8848
+  provider:
+    loadbalance: roundrobin
